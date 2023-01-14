@@ -8,6 +8,9 @@ values ('Adele'), ('Apocalyptica'), ('ATL'), ('Beyonce'), ('Ed Sheeran'), ('Esca
 insert into SingerGenre 
 values (1, 3), (2, 4), (3, 2), (4, 3), (5, 3), (6, 4), (7, 3), (8, 1), (9, 2), (10, 1), (11, 1), (12, 1), (13, 4), (14, 5), (15, 5);
 
+insert into singergenre
+values (2, 1), (8, 3), (12, 3);
+
 insert into Album (name, production_year)
 values ('Friendship', 1984), ('Wild is the wild', 2013), ('30', 2021), ('Cell-0', 2020), ('Лимб', 2018), ('Радио апокалипсис', 2021),
 ('Lemonade', 2016), ('+', 2011), ('Quadrasonic', 2016), ('Fine line', 2019), ('Disney Goes Heavy', 2022), ('PHILARMONIA', 2022),
@@ -24,8 +27,23 @@ values ('Greatest hits III', 1999), ('Release the Panic', 2013), ('5', 2015), ('
 insert into CollectionTrack 
 values (3, 2), (4, 3), (5, 4), (1, 5), (3, 6), (6, 7), (6, 8), (7, 9), (8, 10);
 
+insert into collectiontrack
+values (17, 22);
+
 insert into Track (name, duration, album_id)
 values ('Kiss me', 281, 8), ('Lately', 271, 8), ('Monster', 178, 15), ('Bohemian rhapsody', 356, 13), ('You do not fool me', 322, 13),
 ('So', 268, 8), ('Sing', 236, 8), ('Photograph', 259, 8), ('Kaamos', 284, 4), ('Rosetta', 152, 1), ('Four women', 268, 2),
 ('Шаман', 155, 5), ('Oh my god', 226, 3), ('Sorry', 233, 7), ('Соната ей', 136, 12), ('На щите', 207, 6), ('Louder', 201, 9), ('Golden', 210, 10),
 ('Let it go', 92, 11), ('Lost', 315, 14), ('Tu sei', 512, 16);
+
+insert into Collection (name, production_year)
+values ('Queen forever', 2014);
+
+insert into collection (name, production_year)
+values ('Queen: Greatest hits in Japan', 2020);
+
+insert into Track (name, duration, album_id)
+values ('Mother love', 288, 13);
+
+insert into Track (name, duration, album_id) 
+values ('Hero', 92, 15);
