@@ -12,13 +12,23 @@ join track t on a.album_id = t.album_id
 group by a.name
 order by res desc;
 
-select s.name from singer s
+select distinct s.name from singer s 
 join albumsinger using(singer_id) 
 join album using(album_id)
-where production_year not in (2020);
+where singer_id not in (
+	select singer_id from albumsinger 
+	join album using(album_id) 
+	where production_year in (2020));
 
-select name from collection 
-where name ilike '%queen%';
+
+select c.name from collection c 
+join collectiontrack using(collection_id)
+join track using(track_id)
+join albumsinger using(album_id)
+join singer s using(singer_id)
+group by c.name, s.name
+having s.name ilike '%qeen%';
+
 
 select a.name from album a 
 join albumsinger a2 using(album_id)
@@ -38,7 +48,13 @@ join track t using(album_id)
 group by s.name, duration
 having duration = (select MIN(duration) from track);
 
-select a.name from track 
-join album a using(album_id)
-group by a. name
-having count(album_id) = (select min(mycount) m from (select album_id, count(album_id) mycount from track group by album_id) as mycount2);
+	
+select a.name from album a 
+join track using(album_id)
+group by a.name
+having count(track_id) = (
+	select count(track_id) from album
+	join track using(album_id)
+	group by album.album_id
+	order by count(track_id)
+	limit 1);
